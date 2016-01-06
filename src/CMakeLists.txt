@@ -6,12 +6,10 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
-add_library(PLib PStack.c PStack.h types.h log.c log.h
-        PString.c PString.h)
-add_executable(Plib.out main.c PStack.c PStack.h types.h log.c log.c
-        PString.c PString.h)
+add_executable(good.out main.c multiplayer.h multiplayer.c)
 
 
 # Add personal c flags
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O0 -g -std=gnu11 ")
 set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS} -DDEBUG")
+set(CMAKE_EXE_LINKER_FLAGS "-lws2_32")
