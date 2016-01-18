@@ -1,7 +1,18 @@
-//
-// Created by dell-iman on 1/6/2016.
-//
-
+/*
+ * In The Name Of God
+ * ========================================
+ * [] File Name : multiplayer.c
+ *
+ * [] Creation Date : 19-01-2016
+ *
+ * [] Created By : Iman Tabrizian (tabrizian@outlook.com)
+ *
+ * [] Created By : Parham Alvani (parham.alvani@gmail.com)
+ * =======================================
+*/
+/*
+ * Copyright (c) 2016 Parham Alvani and Iman Tabrizian.
+*/
 #include "multiplayer.h"
 
 #include <arpa/inet.h>
