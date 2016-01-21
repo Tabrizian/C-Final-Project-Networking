@@ -17,7 +17,7 @@
 #define GOOD_MULTIPLAYER_H
 
 struct cell_move_data {
-    int cell_id;
+    int cell_energy;
     int move_direction;
 };
 
