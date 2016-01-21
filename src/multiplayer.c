@@ -65,8 +65,11 @@ int cell_new()
 
 struct cell_move_data cell_move(struct cell_move_data your_move)
 {
-	FILE *sk = fdopen(socket_fd, "wr");
-	fprintf(sk, "%d %d", your_move.cell_id, your_move.move_direction);
+	FILE *sk = fdopen(socket_fd, "w");
+	fprintf(sk, "%d %d\n", your_move.cell_id, your_move.move_direction);
+	fflush(sk);
+
+	sk = fdopen(socket_fd, "r");
 	struct cell_move_data result;
 	fscanf(sk, "%d %d", &result.cell_id, &result.move_direction);
 	return result;
