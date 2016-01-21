@@ -15,6 +15,14 @@
 */
 #include "multiplayer.h"
 
-int main() {
-    cell_new();
+#include <stdio.h>
+
+int main()
+{
+	cell_new();
+	struct cell_move_data good;
+	good.move_direction = 10;
+	good.cell_id = 1;
+	good = cell_move(good);
+	printf("%d %d\n", good.cell_id, good.move_direction);
 }
