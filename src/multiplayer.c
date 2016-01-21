@@ -24,7 +24,7 @@
 
 static int socket_fd;
 
-int cell_new()
+struct cell_position cell_new(struct cell_position your_initial_position)
 {
 	struct sockaddr_in server_addr;
 	struct sockaddr_in client_addr;
@@ -37,7 +37,18 @@ int cell_new()
 
 	if (!connect(socket_fd, (struct sockaddr *) &client_addr,
 		sizeof(client_addr))) {
-		return 0;
+
+        // Solving the problem of initial location....
+        struct cell_position result;
+
+        FILE *sk = fdopen(socket_fd, "w");
+        fprintf(sk, "%d %d\n", your_initial_position.x, your_initial_position.y);
+        fflush(sk);
+
+        sk = fdopen(socket_fd, "r");
+        fscanf(sk, "%d %d", &result.x, &result.y);
+
+        return result;
 	}
 
 	printf("Starting server ....\n");
@@ -59,7 +70,19 @@ int cell_new()
 
 	socket_fd = accept(server_socket_fd, NULL, NULL);
 
-	return 0;
+    // Solving the problem of initial location....
+    struct cell_position result;
+
+    FILE *sk = fdopen(socket_fd, "w");
+    fprintf(sk, "%d %d\n", your_initial_position.x, your_initial_position.y);
+    fflush(sk);
+
+    sk = fdopen(socket_fd, "r");
+    fscanf(sk, "%d %d", &result.x, &result.y);
+
+    return result;
+
+
 }
 
 

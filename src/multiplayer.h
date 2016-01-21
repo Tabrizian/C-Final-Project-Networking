@@ -21,7 +21,12 @@ struct cell_move_data {
     int move_direction;
 };
 
-int cell_new();
+struct cell_position {
+    int x;
+    int y;
+};
+
+struct cell_position cell_new(struct cell_position your_initial_position);
 
 struct cell_move_data cell_move(struct cell_move_data your_move);
 
