@@ -16,9 +16,18 @@
 #ifndef GOOD_MULTIPLAYER_H
 #define GOOD_MULTIPLAYER_H
 
+enum move_direction {
+	NORTH = 1,
+	SOUTH,
+	NORTHEAST,
+	NORTHWEST,
+	SOUTHEAST,
+	SOUTHWEST,
+};
+
 struct cell_move_data {
     int cell_energy;
-    int move_direction;
+    enum move_direction move_direction;
 };
 
 struct cell_position {
